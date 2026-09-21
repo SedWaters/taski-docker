@@ -113,3 +113,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+# Настройки развёртывания Taski
+ALLOWED_HOSTS = [
+    'taski.111.88.150.24.nip.io',
+    'localhost',
+    '127.0.0.1',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://taski.111.88.150.24.nip.io',
+]
+DATABASES['default']['NAME'] = '/data/db.sqlite3'

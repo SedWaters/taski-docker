@@ -1,0 +1,28 @@
+services:
+  taski_backend:
+    build: ./backend
+    restart: unless-stopped
+    volumes:
+      - taski_db:/data
+    networks:
+      kittygram_network:
+        aliases:
+          - taski-backend
+
+  taski_frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - taski_backend
+    networks:
+      kittygram_network:
+        aliases:
+          - taski-frontend
+
+volumes:
+  taski_db:
+
+networks:
+  kittygram_network:
+    external: true
+    name: kittygram_final_default
